@@ -19,7 +19,16 @@ export const registrationApi = createApi({
     getRegistrations: builder.query({
       query: () => 'registrations',
     }),
+    createProject: builder.mutation({
+      query: (formData) => ({
+        url: 'registrations',
+        method: 'POST',
+        body: formData,
+        // Don't set Content-Type header, browser will set it with boundary for FormData
+        formData: true,
+      }),
+    }),
   }),
 });
 
-export const { useGetRegistrationsQuery } = registrationApi;
+export const { useGetRegistrationsQuery, useCreateProjectMutation } = registrationApi;

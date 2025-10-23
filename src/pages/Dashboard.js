@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p:0,mt:3,}}>
         <Typography variant="h4" mb={3}>Live Project</Typography>
         <Grid container spacing={3}>
           {Project?.map((Project) => (

@@ -15,6 +15,7 @@
     "@mui/material": "^7.3.4",
     "@reduxjs/toolkit": "^2.9.1",
     "axios": "^1.12.2",
+    "country-state-city": "^3.2.1",
     "jspdf": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

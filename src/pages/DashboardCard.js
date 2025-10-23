@@ -3,9 +3,9 @@ import { Card, CardContent, Typography, Button } from '@mui/material';
 import jsPDF from 'jspdf';
 
 const DashboardCard = ({ Project, onViewDetails }) => {
-  
-  const handleDownloadPDF = () => {
-    const doc = new jsPDF();    
+
+  const handleOpenPDF = () => {
+    const doc = new jsPDF();
     doc.setFontSize(18);
     doc.text(Project.name, 10, 20);
     doc.setFontSize(12);
@@ -14,9 +14,14 @@ const DashboardCard = ({ Project, onViewDetails }) => {
     doc.text(`Start Date: ${Project.approxStartDate?.split('T')[0]}`, 10, 50);
     doc.text(`End Date: ${Project.approxCompleteDate?.split('T')[0]}`, 10, 60);
     doc.text(`Project Type: ${Project.projectType}`, 10, 70);
-    doc.save(`${Project.name.replace(/\s+/g, '_')}.pdf`);
-    
+
+    // ✅ Convert to Blob URL
+    const pdfBlobUrl = doc.output('bloburl');
+
+    // ✅ Open in same browser tab
+    window.open(pdfBlobUrl, '_self');  // '_self' replaces current tab with PDF
   };
+
   return (
     <Card>
       <CardContent>
@@ -30,7 +35,7 @@ const DashboardCard = ({ Project, onViewDetails }) => {
         <Typography variant="body2" color="text.secondary">
           End: {Project.approxCompleteDate?.split('T')[0]}
         </Typography>
-        <Typography  variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary">
           Mob: {Project.phone}
         </Typography>
 
@@ -46,7 +51,7 @@ const DashboardCard = ({ Project, onViewDetails }) => {
         <Button
           variant="contained"
           size="small"
-          onClick={handleDownloadPDF}
+          onClick={handleOpenPDF}
           sx={{ mt: 1 }}
         >
           Download PDF

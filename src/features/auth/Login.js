@@ -21,23 +21,7 @@ function Login() {
   };
 
   return (
-    // <div className="form-container">
-    //   <h2>Login</h2>
-    //   <form onSubmit={handleSubmit}>
-    //     <input placeholder="Email" onChange={(e) => setForm({ ...form, email: e.target.value })} />
-    //     <input
-    //       type="password"
-    //       placeholder="Password"
-    //       onChange={(e) => setForm({ ...form, password: e.target.value })}
-    //     />
-    //     <button type="submit" disabled={loading}>Login</button>
-    //   </form>
-    //   {error && <p style={{ color: 'red' }}>{error}</p>}
-    //   <p style={{ marginTop: '1rem' }}>
-    //     New here? <Link to="/register">Create a new account</Link>
-    //   </p>
-    // </div>
-         <Grid
+      <Grid
       container
       justifyContent="center"
       alignItems="center"

@@ -43,7 +43,7 @@ const Sidebar = () => {
     <Box>
       <Toolbar>
         <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-          My Dashboard
+          Dashboard
         </Typography>
       </Toolbar>
       <Divider />
@@ -97,7 +97,7 @@ const Sidebar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            My Dashboard
+             Dashboard
           </Typography>
         </Toolbar>
       </AppBar>
