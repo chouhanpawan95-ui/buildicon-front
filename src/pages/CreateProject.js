@@ -81,7 +81,24 @@ const handleIsStartedChange = (e) => {
     projectType: '',
     imageupload: null,
   });
+  const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
+
+  // Validation functions
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const validatePhone = (phone) => {
+    const re = /^[0-9]{10}$/;
+    return re.test(String(phone));
+  };
+
+  const validatePincode = (pincode) => {
+    const re = /^[0-9]{6}$/;
+    return re.test(String(pincode));
+  };
   const [createProject, { isLoading }] = useCreateProjectMutation();
 
   const handleChange = (e) => {
@@ -328,9 +345,7 @@ const handleIsStartedChange = (e) => {
               <Button variant="outlined" onClick={() => setStep(1)}>
                 Back
               </Button>
-            </Box>
-              <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
-              <Button variant="contained" onClick={() => setStep(2)}>
+              <Button variant="contained" onClick={() => setStep(3)}>
                 Next
               </Button>
             </Box>
@@ -356,6 +371,27 @@ const handleIsStartedChange = (e) => {
               margin="normal"
               required
             />
+            
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 3 }}>
+              <Button variant="outlined" onClick={() => setStep(2)}>
+                Back
+              </Button>
+              <Button 
+                variant="contained" 
+                type="submit"
+                disabled={isLoading}
+                sx={{ minWidth: 150 }}
+              >
+                {isLoading ? (
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <CircularProgress size={20} color="inherit" />
+                    <span>Saving...</span>
+                  </Box>
+                ) : (
+                  'Create Project'
+                )}
+              </Button>
+            </Box>
           </>
         )}
 

@@ -28,7 +28,20 @@ export const registrationApi = createApi({
         formData: true,
       }),
     }),
+    createEngineerVisit: builder.mutation({
+      query: (formData) => ({
+        url: 'engineer-visits',
+        method: 'POST',
+        body: formData,
+        // Don't set Content-Type header for FormData
+        formData: true,
+      }),
+    }),
   }),
 });
 
-export const { useGetRegistrationsQuery, useCreateProjectMutation } = registrationApi;
+export const { 
+  useGetRegistrationsQuery, 
+  useCreateProjectMutation,
+  useCreateEngineerVisitMutation 
+} = registrationApi;
